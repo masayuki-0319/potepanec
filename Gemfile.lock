@@ -61,6 +61,7 @@ GEM
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
     arel (9.0.0)
+    ast (2.4.0)
     autoprefixer-rails (7.2.6)
       execjs
     awesome_nested_set (3.1.4)
@@ -174,8 +175,12 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
+    parallel (1.17.0)
     paranoia (2.4.1)
       activerecord (>= 4.0, < 5.3)
+    parser (2.6.3.0)
+      ast (~> 2.4.0)
+    powerpack (0.1.2)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -220,6 +225,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
+    rainbow (3.0.0)
     rake (12.3.1)
     ransack (2.0.1)
       actionpack (>= 5.0)
@@ -249,7 +255,20 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    rubocop (0.52.1)
+      parallel (~> 1.10)
+      parser (>= 2.4.0.2, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    rubocop-airbnb (1.0.0)
+      rubocop (= 0.52.1)
+      rubocop-rspec (= 1.22.1)
+    rubocop-rspec (1.22.1)
+      rubocop (>= 0.52.1)
     ruby-graphviz (1.2.3)
+    ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
     sass (3.6.0)
       sass-listen (~> 4.0.0)
@@ -353,6 +372,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.19)
       execjs (>= 0.3.0, < 3)
+    unicode-display_width (1.6.0)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.7.0)
@@ -384,6 +404,8 @@ DEPENDENCIES
   rails (~> 5.2.1)
   rails-erd
   rspec-rails
+  rubocop (~> 0.52.1)
+  rubocop-airbnb
   sass-rails (~> 5.0)
   solidus (~> 2.7.0)
   solidus_auth_devise
