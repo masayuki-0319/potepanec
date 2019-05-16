@@ -3,7 +3,7 @@
   <head>
 
     <!-- SITE TITTLE -->
-    <title>Terms &amp; Conditions - BIGBAG Store</title>
+    <% provide(:title, 'Terms &amp; Conditions') %>
 
     <!-- PLUGINS CSS STYLE -->
 
@@ -106,17 +106,6 @@
           </div>
         </div>
       </section>
-
-      <!-- FOOTER -->
-      <!-- COPY RIGHT -->
-      <%= render 'footer' %>
     </div>
-
-    <!-- LOGIN MODAL -->
-    <%= render 'modal_login' %>
-
-    <!-- SIGN UP MODAL -->
-    <%= render 'modal_signup' %>
-
   </body>
 </html>

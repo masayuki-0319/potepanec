@@ -3,7 +3,7 @@
   <head>
 
     <!-- SITE TITTLE -->
-    <title>BIGBAG Store</title>
+    <% provide(:title, '') %>
 
     <!-- PLUGINS CSS STYLE -->
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -229,17 +229,7 @@
           </div>
         </div>
       </section>
-
-      <!-- FOOTER -->
-      <!-- COPY RIGHT -->
-      <%= render 'footer' %>
     </div>
-
-    <!-- LOGIN MODAL -->
-    <%= render 'modal_login' %>
-
-    <!-- SIGN UP MODAL -->
-    <%= render 'modal_signup' %>
 
     <!-- PORDUCT QUICK VIEW MODAL -->
     <div class="modal fade quick-view" tabindex="-1" role="dialog">

@@ -3,8 +3,8 @@
   <head>
 
     <!-- SITE TITTLE -->
-    <title>Single Blog Left Sidebar - BIGBAG Store</title>
-
+    <% provide(:title, 'Single Blog Left Sidebar') %>
+    
     <!-- PLUGINS CSS STYLE -->
 
     <!-- GOOGLE FONT -->
@@ -127,17 +127,6 @@
           </div>
         </div>
       </section>
-
-      <!-- FOOTER -->
-      <!-- COPY RIGHT -->
-      <%= render 'footer' %>
     </div>
-
-    <!-- LOGIN MODAL -->
-    <%= render 'modal_login' %>
-
-    <!-- SIGN UP MODAL -->
-    <%= render 'modal_signup' %>
-
   </body>
 </html>

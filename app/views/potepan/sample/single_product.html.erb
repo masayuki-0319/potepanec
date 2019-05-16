@@ -3,7 +3,7 @@
   <head>
 
     <!-- SITE TITTLE -->
-    <title>Single Product - BIGBAG Store</title>
+    <% provide(:title, 'Single Product') %>
 
     <!-- PLUGINS CSS STYLE -->
 
@@ -192,17 +192,6 @@
           </div>
         </div>
       </section>
-
-      <!-- FOOTER -->
-      <!-- COPY RIGHT -->
-      <%= render 'footer' %>
     </div>
-
-    <!-- LOGIN MODAL -->
-    <%= render 'modal_login' %>
-
-    <!-- SIGN UP MODAL -->
-    <%= render 'modal_signup' %>
-
   </body>
 </html>
