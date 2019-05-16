@@ -5,19 +5,19 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= stylesheet_link_tag "application", 'https://fonts.googleapis.com/css?family=Oxygen:400,300,700', :media => "all" %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Oxygen:400,300,700', :media => "all" %>
 
     <%= javascript_include_tag 'application' %>
 
     <%= render 'layouts/head_shim' %>
-    
+
     <%= yield(:extend_head) %>
   </head>
 
   <body>
     <div class="main-wrapper">
-      <%= render 'layouts/header_new_ver' %>
+      <%= render 'layouts/header' %>
       <%= render 'layouts/light_section' unless yield(:title) == "" %>
       <%= yield %>
       <%= render 'layouts/footer' %>
