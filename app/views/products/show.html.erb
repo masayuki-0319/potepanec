@@ -1,4 +1,4 @@
-<% provide(:title, 'Single Product') %>
+<% provide(:title, @product.name) %>
 
 <!-- MAIN CONTENT SECTION -->
 <section class="mainContent clearfix">
@@ -9,9 +9,9 @@
           <div class="media-left productSlider">
             <div id="carousel" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-                <% 0.upto(3) do |n| %>
+                <% @product.images.each_with_index do |image, n| %>
                   <div class="item <%= 'active' if n.zero? %>" data-thumb="<%= n %>">
-                    <%= image_tag("img/products/signle-product/product-slide-big-0#{n+1}.jpg") %>
+                    <%= image_tag(image.attachment(:large))%>
                   </div>
                 <% end %>
               </div>
@@ -19,9 +19,9 @@
             <div class="clearfix">
               <div id="thumbcarousel" class="carousel slide" data-interval="false">
                 <div class="carousel-inner">
-                  <% 0.upto(3) do |n| %>
+                  <% @product.images.each_with_index do |image, n| %>
                     <div data-target="#carousel" data-slide-to="<%= n %>" class="thumb">
-                      <%= image_tag("img/products/signle-product/product-slide-small-0#{n+1}.jpg") %>
+                      <%= image_tag(image.attachment(:small))%>
                     </div>
                   <% end %>
                 </div>
@@ -40,9 +40,9 @@
               <li><a href="product_grid_left_sidebar.html"><i class="fa fa-reply" aria-hidden="true"></i>一覧ページへ戻る</a></li>
               <!-- <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Share This</a></li> -->
             </ul>
-            <h2>Pellentesque non risus quis tellus</h2>
-            <h3>149円</h3>
-            <p>Mauris lobortis augue ex, ut faucibus nisi mollis ac. Sed volutpat scelerisque ex ut ullamcorper. Cras at velit quis sapien dapibus laoreet a id odio. Sed sit amet accumsan ante, eu congue metus. Aenean eros tortor, cursus quis feugiat sed, vestibulum vel purus. Etiam aliquam turpis quis blandit finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor placerat lectus, facilisis ornare leo tincidunt vel. Duis rutrum felis felis, eget malesuada massa tincidunt a.</p>
+            <h2><%= @product.name %></h2>
+            <h3><%= @product.display_price %></h3>
+            <p><%= @product.description %></p>
             <span class="quick-drop">
               <select name="guiest_id3" id="guiest_id3" class="select-drop">
                 <option value="0">S</option>
