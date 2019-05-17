@@ -6,7 +6,7 @@
     <div class="fullscreenbanner">
       <ul>
         <li>
-          <%= image_tag("home/banner-slider/slider-bg.jpg", :alt => "slidebg1", data:{bgposition: "center center", bgfit: "cover" , bgrepeat: "no-repeat"}) %>
+          <%= image_tag("home/banner-slider/slider-bg.jpg", :alt => "slidebg1", data:{ bgposition: "center center", bgfit: "cover" , bgrepeat: "no-repeat" }) %>
         </li>
       </ul>
     </div>
@@ -26,7 +26,7 @@
         <div class="thumbnail" onclick="location.href='single_product.html';">
           <div class="imageWrapper">
             <%= image_tag("home/featured-collection/featured-collection-01.jpg", :alt => "feature-collection-image") %>
-            <div class="masking"><a href="product_grid_left_sidebar.html" class="btn viewBtn">View Shirts</a></div>
+            <div class="masking"><%= link_to "View Shirts", potepan_product_grid_left_sidebar_path, class: "btn viewBtn" %> </div>
           </div>
           <div class="caption">
             <h4>Shirts</h4>
@@ -37,7 +37,7 @@
         <div class="thumbnail" onclick="location.href='single_product.html';">
           <div class="imageWrapper">
             <%= image_tag("home/featured-collection/featured-collection-02.jpg", :alt => "feature-collection-image") %>
-            <div class="masking"><a href="product_grid_left_sidebar.html" class="btn viewBtn">View Bags</a></div>
+            <div class="masking"><%= link_to "View Bags", potepan_product_grid_left_sidebar_path, class: "btn viewBtn" %> </div>
           </div>
           <div class="caption">
             <h4>Bags</h4>
@@ -48,7 +48,7 @@
         <div class="thumbnail" onclick="location.href='single_product.html';">
           <div class="imageWrapper">
             <%= image_tag("home/featured-collection/featured-collection-03.jpg", :alt => "feature-collection-image") %>
-            <div class="masking"><a href="product_grid_left_sidebar.html" class="btn viewBtn">View Denim</a></div>
+            <div class="masking"><%= link_to "View Denims", potepan_product_grid_left_sidebar_path, class: "btn viewBtn" %> </div>
           </div>
           <div class="caption">
             <h4>Denim</h4>
@@ -69,9 +69,9 @@
               <%= image_tag("home/featured-product/product-01.jpg", :alt => "featured-product-img") %>
             </div>
             <div class="productCaption clearfix">
-              <a href="single_product.html">
+              <%= link_to potepan_single_product_path do %>
                 <h5>Mauris efficitur</h5>
-              </a>
+              <% end %>
               <h3>199円</h3>
             </div>
           </div>
@@ -80,9 +80,9 @@
               <%= image_tag("home/featured-product/product-02.jpg", :alt => "featured-product-img") %>
             </div>
             <div class="productCaption">
-              <a href="single_product.html">
+              <%= link_to potepan_single_product_path do %>
                 <h5>Nulla facilisi</h5>
-              </a>
+              <% end %>
               <h3>149円</h3>
             </div>
           </div>
@@ -91,9 +91,9 @@
               <%= image_tag("home/featured-product/product-03.jpg", :alt => "featured-product-img") %>
             </div>
             <div class="productCaption">
-              <a href="single_product.html">
+              <%= link_to potepan_single_product_path do %>
                 <h5>Praesent dui felis</h5>
-              </a>
+              <% end %>
               <h3>79円</h3>
             </div>
           </div>
@@ -102,9 +102,9 @@
               <%= image_tag("home/featured-product/product-04.jpg", :alt => "featured-product-img") %>
             </div>
             <div class="productCaption">
-              <a href="single_product.html">
+              <%= link_to potepan_single_product_path do %>
                 <h5>Cras eu faucibus</h5>
-              </a>
+              <% end %>
               <h3>109円</h3>
             </div>
           </div>
@@ -113,9 +113,9 @@
               <%= image_tag("home/featured-product/product-05.jpg", :alt => "featured-product-img") %>
             </div>
             <div class="productCaption">
-              <a href="single_product.html">
+              <%= link_to potepan_single_product_path do %>
                 <h5>Mauris lobortis augue</h5>
-              </a>
+              <% end %>
               <h3>199円</h3>
             </div>
           </div>
@@ -124,9 +124,9 @@
               <%= image_tag("home/featured-product/product-06.jpg", :alt => "featured-product-img") %>
             </div>
             <div class="productCaption">
-              <a href="single_product.html">
+              <%= link_to potepan_single_product_path do %>
                 <h5>Suspendisse suscipit</h5>
-              </a>
+              <% end %>
              <h3>149円</h3>
             </div>
           </div>
@@ -135,9 +135,9 @@
               <%= image_tag("home/featured-product/product-07.jpg", :alt => "featured-product-img") %>
             </div>
             <div class="productCaption">
-              <a href="single_product.html">
+              <%= link_to potepan_single_product_path do %>
                 <h5>Praesent a augue</h5>
-              </a>
+              <% end %>
               <h3>79円</h3>
             </div>
           </div>
@@ -146,9 +146,9 @@
               <%= image_tag("home/featured-product/product-09.jpg", :alt => "featured-product-img") %>
             </div>
             <div class="productCaption">
-              <a href="single_product.html">
+              <%= link_to potepan_single_product_path do %>
                 <h5>Cras vel augue</h5>
-              </a>
+              <% end %>
               <h3>109円</h3>
             </div>
           </div>

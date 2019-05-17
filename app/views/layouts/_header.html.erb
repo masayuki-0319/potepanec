@@ -28,7 +28,9 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a href="cart_page.html" class="dropdown-toggle" data-toggle="dropdown disabled"><i class="fa fa-shopping-cart"></i></a>
+              <%= link_to potepan_cart_page_path, class: "dropdown-toggle", data: { toggle: "dropdown disabled" } do %>
+                <i class="fa fa-shopping-cart"></i>
+              <% end %>
               <!-- cart_pageのダミー部分だが，一応残した。
               <ul class="dropdown-menu dropdown-menu-right">
                 <li>Item(s) in your cart</li>
@@ -78,7 +80,6 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="javascript:void(0)"><%= image_tag("logo.png") %></a>
-        <!--*cart_pageとcheckoutの元コード，上記１行に代替* <a class="navbar-brand" href="index.html"><%= image_tag("img/logo.png", :alt => "") %></a> -->
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -87,14 +88,9 @@
           <li class="active"><a href="javascript:void(0)">Home</a></li>
           <li class="dropdown megaDropMenu">
             <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"　data-hover="dropdown" data-delay="300" data-close-others="true" aria-expanded="false">Shop</a>
-          <!-- *cart_pageとcheckout_compの元コード，上記３行に代替*
+          <!-- *cart_pageとcheckoutの元コード，上記３行に代替*
           <li><a href="index.html">Home</a></li>
           <li class="dropdown megaDropMenu active">
-            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="300" data-close-others="true" aria-expanded="false">Shop</a>
-            -->
-          <!-- *checkout_step123の元コード，同上*
-          <li class=""><a href="index.html">Home</a></li>
-          <li class="dropdown megaDropMenu">
             <a href="product-grid-left-sidebar.html" class="dropdown-toggle">Shop</b></a>
             -->
           </li>
