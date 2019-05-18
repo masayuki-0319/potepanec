@@ -1,6 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-require 'spree/testing_support.factories'
+require 'capybara/rspec'
+require 'spree/testing_support/factories'
 require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/controller_requests'
 
