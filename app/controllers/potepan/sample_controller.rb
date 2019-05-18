@@ -3,9 +3,11 @@ class Potepan::SampleController < ApplicationController
   end
 
   def product_grid_left_sidebar
+    @products = Spree::Product.all
   end
 
   def product_list_left_sidebar
+    @products = Spree::Product.all
   end
 
   def single_product
