@@ -15,7 +15,7 @@
   <body>
     <div class="main-wrapper">
       <%= render 'layouts/header' %>
-      <%= render 'layouts/light_section' unless yield(:title) == "" %>
+      <%= render 'layouts/light_section' unless yield(:title).blank? %>
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
