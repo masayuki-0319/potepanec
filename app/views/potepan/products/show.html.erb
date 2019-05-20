@@ -11,7 +11,7 @@
               <div class="carousel-inner">
                 <% @product.images.each_with_index do |image, n| %>
                   <div class="item <%= 'active' if n.zero? %>" data-thumb="<%= n %>">
-                    <%= image_tag(image.attachment(:large))%>
+                    <%= image_tag(image.attachment(:large)) %>
                   </div>
                 <% end %>
               </div>
@@ -21,7 +21,7 @@
                 <div class="carousel-inner">
                   <% @product.images.each_with_index do |image, n| %>
                     <div data-target="#carousel" data-slide-to="<%= n %>" class="thumb">
-                      <%= image_tag(image.attachment(:small))%>
+                      <%= image_tag(image.attachment(:small)) %>
                     </div>
                   <% end %>
                 </div>
@@ -34,7 +34,6 @@
               </div>
             </div>
           </div>
-
           <div class="media-body">
             <ul class="list-inline">
               <li>
@@ -69,60 +68,60 @@
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               <% end %>
             </div>
-            <!-- <div class="tabArea">
-              <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#details">details</a></li>
-                <li><a data-toggle="tab" href="#about-art">about art</a></li>
-                <li><a data-toggle="tab" href="#sizing">sizing</a></li>
-                <li><a data-toggle="tab" href="#shipping">shipping</a></li>
-              </ul>
-              <div class="tab-content">
-                <div id="details" class="tab-pane fade in active">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                  <ul class="list-unstyled">
-                    <li>Black, Crew Neck</li>
-                    <li>75% Cotton, 25% Rayon</li>
-                    <li>Waterbased Ink</li>
-                    <li>Wash Cold, dry low</li>
-                  </ul>
-                </div>
-                <div id="about-art" class="tab-pane fade">
-                  <p>Nulla facilisi. Mauris efficitur, massa et iaculis accumsan, mauris velit ultrices purus, quis condimentum nibh dolor ut tortor. Donec egestas tortor quis mattis gravida. Ut efficitur elit vitae dignissim volutpat. </p>
-                </div>
-                <div id="sizing" class="tab-pane fade">
-                  <p>Praesent dui felis, gravida a auctor at, facilisis commodo ipsum. Cras eu faucibus justo. Nullam varius cursus nisi, sed elementum sem sagittis at. Nulla tellus massa, vestibulum a commodo facilisis, pulvinar convallis nunc.</p>
-                </div>
-                <div id="shipping" class="tab-pane fade">
-                  <p>Mauris lobortis augue ex, ut faucibus nisi mollis ac. Sed volutpat scelerisque ex ut ullamcorper. Cras at velit quis sapien dapibus laoreet a id odio. Sed sit amet accumsan ante, eu congue metus. Aenean eros tortor, cursus quis feugiat sed, vestibulum vel purus.</p>
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
     </div>
-
     <div class="row productsContent">
       <div class="col-xs-12">
         <div class="page-header">
           <h4>関連商品</h4>
         </div>
       </div>
-      <% kanren = { name: ["Nike SportsWear", "Dip Dyed Sweater", "Scarf Ring corner", "Sun Buddies"],
-                    price: ["199円", "249円", "179円", "149円"] } %>
-      <% 0.upto(kanren[:name].size - 1) do |n| %>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="productBox">
-            <div class="productImage clearfix">
-              <%= image_tag("img/products/products-0#{n+1}.jpg", :alt => "products-img") %>
-            </div>
-            <div class="productCaption clearfix">
-             <h5><%= kanren[:name][n] %></h5>
-             <h3><%= kanren[:price][n] %></h3>
-            </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="productBox">
+          <div class="productImage clearfix">
+            <%= image_tag("img/products/products-01.jpg", :alt => "products-img") %>
+          </div>
+          <div class="productCaption clearfix">
+           <h5>Nike Sportswear</h5>
+           <h3>199円</h3>
           </div>
         </div>
-      <% end %>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="productBox">
+          <div class="productImage clearfix">
+            <%= image_tag("img/products/products-02.jpg", :alt => "products-img") %>
+          </div>
+          <div class="productCaption clearfix">
+           <h5>Dip Dyed Sweater</h5>
+           <h3>249円</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="productBox">
+          <div class="productImage clearfix">
+            <%= image_tag("img/products/products-03.jpg", :alt => "products-img") %>
+          </div>
+          <div class="productCaption clearfix">
+           <h5>Scarf Ring Corner</h5>
+           <h3>179円</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="productBox">
+          <div class="productImage clearfix">
+            <%= image_tag("img/products/products-04.jpg", :alt => "products-img") %>
+          </div>
+          <div class="productCaption clearfix">
+           <h5>Sun Buddies</h5>
+           <h3>149円</h3>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

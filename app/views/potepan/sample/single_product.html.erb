@@ -34,7 +34,6 @@
               </div>
             </div>
           </div>
-
           <div class="media-body">
             <ul class="list-inline">
               <li>
@@ -57,7 +56,6 @@
             </span>
             <span class="quick-drop resizeWidth">
               <select name="guiest_id4" id="guiest_id4" class="select-drop">
-              <!--   <option value="0">Qty</option> -->
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -101,28 +99,56 @@
         </div>
       </div>
     </div>
-
     <div class="row productsContent">
       <div class="col-xs-12">
         <div class="page-header">
           <h4>関連商品</h4>
         </div>
       </div>
-      <% kanren = { name: ["Nike SportsWear", "Dip Dyed Sweater", "Scarf Ring corner", "Sun Buddies"],
-                    price: ["199円", "249円", "179円", "149円"] } %>
-      <% 0.upto(kanren[:name].size - 1) do |n| %>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="productBox">
-            <div class="productImage clearfix">
-              <%= image_tag("img/products/products-0#{n+1}.jpg", :alt => "products-img") %>
-            </div>
-            <div class="productCaption clearfix">
-             <h5><%= kanren[:name][n] %></h5>
-             <h3><%= kanren[:price][n] %></h3>
-            </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="productBox">
+          <div class="productImage clearfix">
+            <%= image_tag("img/products/products-01.jpg", :alt => "products-img") %>
+          </div>
+          <div class="productCaption clearfix">
+           <h5>Nike Sportswear</h5>
+           <h3>199円</h3>
           </div>
         </div>
-      <% end %>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="productBox">
+          <div class="productImage clearfix">
+            <%= image_tag("img/products/products-02.jpg", :alt => "products-img") %>
+          </div>
+          <div class="productCaption clearfix">
+           <h5>Dip Dyed Sweater</h5>
+           <h3>249円</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="productBox">
+          <div class="productImage clearfix">
+            <%= image_tag("img/products/products-03.jpg", :alt => "products-img") %>
+          </div>
+          <div class="productCaption clearfix">
+           <h5>Scarf Ring Corner</h5>
+           <h3>179円</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="productBox">
+          <div class="productImage clearfix">
+            <%= image_tag("img/products/products-04.jpg", :alt => "products-img") %>
+          </div>
+          <div class="productCaption clearfix">
+           <h5>Sun Buddies</h5>
+           <h3>149円</h3>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

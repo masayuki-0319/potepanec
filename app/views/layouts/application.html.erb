@@ -7,12 +7,9 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Oxygen:400,300,700', :media => "all" %>
-
-    <%= javascript_include_tag 'application' %>
+    <%= yield(:extend_head) %>
 
     <%= render 'layouts/head_shim' %>
-
-    <%= yield(:extend_head) %>
   </head>
 
   <body>
@@ -24,5 +21,6 @@
     </div>
     <%= render 'layouts/modal_login' %>
     <%= render 'layouts/modal_signup' %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>

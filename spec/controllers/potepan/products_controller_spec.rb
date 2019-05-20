@@ -6,17 +6,17 @@ RSpec.describe Potepan::ProductsController, type: :controller do
 
     let(:product) { FactoryBot.create(:product) }
 
-    it "レスポンスの確認" do
+    it "レスポンス成功を確認" do
       subject
       expect(response).to be_successful
     end
 
-    it "View表示の確認" do
+    it "showテンプレートの描画を確認" do
       subject
       expect(response).to render_template :show
     end
 
-    it "インスタンスの確認" do
+    it "@productへの受け渡しを確認" do
       subject
       expect(assigns(:product)).to eq(product)
     end
