@@ -9,7 +9,7 @@
           <div class="media-left productSlider">
             <div id="carousel" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-                <% @product.images.each_with_index do |image, n| %>
+                <% @product.images.each_with_index do |image, i| %>
                   <div class="item <%= 'active' if n.zero? %>" data-thumb="<%= n %>">
                     <%= image_tag(image.attachment(:large)) %>
                   </div>
@@ -19,7 +19,7 @@
             <div class="clearfix">
               <div id="thumbcarousel" class="carousel slide" data-interval="false">
                 <div class="carousel-inner">
-                  <% @product.images.each_with_index do |image, n| %>
+                  <% @product.images.each_with_index do |image, i| %>
                     <div data-target="#carousel" data-slide-to="<%= n %>" class="thumb">
                       <%= image_tag(image.attachment(:small)) %>
                     </div>
@@ -56,7 +56,6 @@
             </span>
             <span class="quick-drop resizeWidth">
               <select name="guiest_id4" id="guiest_id4" class="select-drop">
-              <!--   <option value="0">Qty</option> -->
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>

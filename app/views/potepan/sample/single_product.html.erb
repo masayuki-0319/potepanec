@@ -9,7 +9,7 @@
           <div class="media-left productSlider">
             <div id="carousel" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-                <% 0.upto(3) do |n| %>
+                <% 0.upto(3) do |i| %>
                   <div class="item <%= 'active' if n.zero? %>" data-thumb="<%= n %>">
                     <%= image_tag("img/products/signle-product/product-slide-big-0#{n+1}.jpg") %>
                   </div>
@@ -19,7 +19,7 @@
             <div class="clearfix">
               <div id="thumbcarousel" class="carousel slide" data-interval="false">
                 <div class="carousel-inner">
-                  <% 0.upto(3) do |n| %>
+                  <% 0.upto(3) do |i| %>
                     <div data-target="#carousel" data-slide-to="<%= n %>" class="thumb">
                       <%= image_tag("img/products/signle-product/product-slide-small-0#{n+1}.jpg") %>
                     </div>

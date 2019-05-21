@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Products", type: :feature do
-  let(:product) { FactoryBot.create(:product) }
+  let(:product) { create(:product) }
 
   scenario "ユーザーがProduct#showにアクセスする。" do
     visit potepan_product_path(product.id)

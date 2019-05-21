@@ -104,7 +104,7 @@
           </div>
         </div>
         <div class="row productListSingle"><!--商品一覧表示 -->
-          <%= render 'product', collection: @products if @products.any? %>
+          <%= render partial: 'product', collection: @products, as: :product, locals: { title: yield(:title) } if @products.any? %>
         </div>
       </div>
     </div>

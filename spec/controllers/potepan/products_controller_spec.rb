@@ -4,7 +4,7 @@ RSpec.describe Potepan::ProductsController, type: :controller do
   describe '#show' do
     subject { get :show, params: { id: product.id } }
 
-    let(:product) { FactoryBot.create(:product) }
+    let(:product) { create(:product) }
 
     it "レスポンス成功を確認" do
       subject
