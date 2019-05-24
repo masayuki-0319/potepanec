@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-heading">商品カテゴリー</div>
+  <div class="panel-body">
+    <div class="collapse navbar-collapse navbar-ex1-collapse navbar-side-collapse">
+      <ul class="nav navbar-nav side-nav">
+        <li>
+          <a href="javascript:;" data-toggle="collapse" data-target="#category">カテゴリー<i class="fa fa-plus"></i></a>
+          <ul id="category" class="collapse collapseItem">
+            <li>
+              <a href="<%= potepan_category_path(taxon_id: 3) %>"><i class="fa fa-caret-right" aria-hidden="true"></i>Bags <span>(6)</span></a>
+            </li>
+            <li>
+              <a href="<%= potepan_category_path(taxon_id: 4) %>"><i class="fa fa-caret-right" aria-hidden="true"></i>Mugs <span>(6)</span></a>
+            </li>
+            <li>
+              <a href="javascript:;" data-toggle="collapse" data-target="#clothing">衣服<i class="fa fa-plus"></i></a>
+              <ul id="clothing" class="collapse collapseItem">
+                <li>
+                  <a href="<%= potepan_category_path(taxon_id: 6) %>"><i class="fa fa-caret-right" aria-hidden="true"></i>Shirts <span>(6)</span></a>
+                </li>
+                <li>
+                  <a href="<%= potepan_category_path(taxon_id: 7) %>"><i class="fa fa-caret-right" aria-hidden="true"></i>T-Shirts <span>(6)</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:;" data-toggle="collapse" data-target="#brand">ブランド<i class="fa fa-plus"></i></a>
+          <ul id="brand" class="collapse collapseItem">
+            <li>
+              <a href="<%= potepan_category_path(taxon_id: 8) %>"><i class="fa fa-caret-right" aria-hidden="true"></i>Ruby <span>(6)</span></a>
+            </li>
+            <li>
+              <a href="<%= potepan_category_path(taxon_id: 9) %>"><i class="fa fa-caret-right" aria-hidden="true"></i>Apache <span>(6)</span></a>
+            </li>
+            <li>
+              <a href="<%= potepan_category_path(taxon_id: 10) %>"><i class="fa fa-caret-right" aria-hidden="true"></i>Rails <span>(6)</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
