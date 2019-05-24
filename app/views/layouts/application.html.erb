@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Potepanec</title>
+    <%= render 'layouts/head_meta' %>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Oxygen:400,300,700', :media => "all" %>
+    <%= yield(:extend_head) %>
+
+    <%= render 'layouts/head_shim' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="main-wrapper">
+      <%= render 'layouts/header' %>
+      <%= render 'layouts/light_section' unless yield(:title).blank? %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+    <%= render 'shared/modal_login' %>
+    <%= render 'shared/modal_signup' %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
