@@ -1,0 +1,29 @@
+<% if title.include?("List") %>
+  <div class="col-xs-12">
+    <div class="media">
+      <div class="media-left">
+        <%= image_tag(product.images.first.attachment(:large), :class => "media-object", :alt => "Image") if product.images.any? %>
+        <span class="maskingImage"><a data-toggle="modal" href=".quick-view" class="btn viewBtn">Quick View</a></span>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= link_to product.name, potepan_product_path(product) %></h4>
+        <p><%= product.description %></p>
+        <h3><%= product.display_price %></h3>
+      </div>
+    </div>
+  </div>
+<% elsif title.include?("Grid") %>
+  <div class="col-sm-4 col-xs-12">
+    <div class="productBox">
+      <div class="productImage clearfix">
+        <%= image_tag(product.images.first.attachment(:large), :class => "media-object", :alt => "Image") if product.images.any? %>
+      </div>
+      <div class="productCaption clearfix">
+        <%= link_to potepan_product_path(product) do %>
+          <h5><%= product.name %></h5>
+        <% end %>
+        <h3><%= product.display_price %></h3>
+      </div>
+    </div>
+  </div>
+<% end %>

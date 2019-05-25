@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Potepan::CategoriesController, type: :controller do
   describe '#show' do
-    subject { get :show, params: { id: taxon.id } }
+    subject { get :show, params: { taxon_id: taxon.id } }
 
     let(:taxon) { create(:taxon) }
 
