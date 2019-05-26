@@ -1,4 +1,4 @@
-<% provide(:title, 'Product Grid Sidebar Left') %>
+<% provide(:title, @taxon.name) %>
 <% content_for :add_breadcrumb do %>
   <li><%= link_to 'shop', '#' %></li>
 <% end %>
@@ -7,32 +7,7 @@
 <section class="mainContent clearfix productsContent">
   <div class="container">
     <div class="row">
-      <div class="col-md-3 col-sm-4 col-xs-12 sideBar">
-        <%= render 'potepan/sample/sidebar_categories' %>
-        <div class="panel panel-default filterNormal">
-          <div class="panel-heading">色から探す</div>
-          <div class="panel-body">
-            <ul class="list-unstyled">
-              <li><a href="#">ブラック<span>(15)</span></a></li>
-              <li><a href="#">ホワイト<span>(10)</span></a></li>
-              <li><a href="#">レッド<span>(7)</span></a></li>
-              <li><a href="#">ブルー<span>(12)</span></a></li>
-              <li><a href="#">オレンジ<span>(12)</span></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="panel panel-default filterNormal">
-          <div class="panel-heading">サイズから探す</div>
-          <div class="panel-body">
-            <ul class="list-unstyled clearfix">
-              <li><a href="#">S<span>(15)</span></a></li>
-              <li><a href="#">M<span>(10)</span></a></li>
-              <li><a href="#">L<span>(7)</span></a></li>
-              <li><a href="#">XL<span>(12)</span></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <%= render 'potepan/shared/sidebar_product' %>
       <div class="col-md-9 col-sm-8 col-xs-12">
         <div class="row filterArea">
           <div class="col-xs-6">
@@ -46,14 +21,14 @@
           </div>
           <div class="col-xs-6">
             <div class="btn-group pull-right" role="group">
-              <button type="button" class="btn btn-default active" onclick="window.location.href='product_grid_left_sidebar.html'"><i class="fa fa-th" aria-hidden="true"></i><span>Grid</span></button>
-              <button type="button" class="btn btn-default" onclick="window.location.href='product_list_left_sidebar.html'"><i class="fa fa-th-list" aria-hidden="true"></i><span>List</span></button>
+              <button type="button" class="btn btn-default <%= 'active' if "#{params[:view_type]}" == 'Grid' %>" onclick="window.location.href='<%= potepan_category_path(taxon_id: "#{params[:taxon_id]}", view_type: 'Grid') %>'"><i class="fa fa-th" aria-hidden="true"></i><span>Grid</span></button>
+              <button type="button" class="btn btn-default <%= 'active' if "#{params[:view_type]}" == 'List' %>" onclick="window.location.href='<%= potepan_category_path(taxon_id: "#{params[:taxon_id]}", view_type: 'List') %>'"><i class="fa fa-th-list" aria-hidden="true"></i><span>List</span></button>
             </div>
           </div>
         </div>
         <!--商品一覧表示 -->
-        <div class="row">
-          <%= render partial: 'potepan/categories/product', collection: @products, as: :product, locals: { title: yield(:title) } if @products.present? %>
+        <div class="row productListSingle">
+          <%= render partial: 'potepan/shared/product', collection: @products, as: :product if @products.present? %>
         </div>
       </div>
     </div>

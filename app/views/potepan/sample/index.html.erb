@@ -25,7 +25,7 @@
         <div class="thumbnail" onclick="location.href='<%= potepan_single_product_path %>';">
           <div class="imageWrapper">
             <%= image_tag("home/featured-collection/featured-collection-01.jpg", :alt => "feature-collection-image") %>
-            <div class="masking"><%= link_to "View Shirts", potepan_product_grid_left_sidebar_path, class: "btn viewBtn" %> </div>
+            <div class="masking"><%= link_to "View Shirts", potepan_category_path(taxon_id: 7, view_type: 'Grid'), class: "btn viewBtn" %> </div>
           </div>
           <div class="caption">
             <h4>Shirts</h4>
@@ -36,7 +36,7 @@
         <div class="thumbnail" onclick="location.href='<%= potepan_single_product_path %>';">
           <div class="imageWrapper">
             <%= image_tag("home/featured-collection/featured-collection-02.jpg", :alt => "feature-collection-image") %>
-            <div class="masking"><%= link_to "View Bags", potepan_product_grid_left_sidebar_path, class: "btn viewBtn" %> </div>
+            <div class="masking"><%= link_to "View Bags", potepan_category_path(taxon_id: 3, view_type: 'Grid'), class: "btn viewBtn" %> </div>
           </div>
           <div class="caption">
             <h4>Bags</h4>
@@ -47,7 +47,7 @@
         <div class="thumbnail" onclick="location.href='<%= potepan_single_product_path %>';">
           <div class="imageWrapper">
             <%= image_tag("home/featured-collection/featured-collection-03.jpg", :alt => "feature-collection-image") %>
-            <div class="masking"><%= link_to "View Denims", potepan_product_grid_left_sidebar_path, class: "btn viewBtn" %> </div>
+            <div class="masking"><%= link_to "View Denims", potepan_category_path(taxon_id: 4, view_type: 'Grid'), class: "btn viewBtn" %> </div>
           </div>
           <div class="caption">
             <h4>Denim</h4>

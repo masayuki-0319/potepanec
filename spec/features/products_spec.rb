@@ -19,7 +19,7 @@ RSpec.feature "Products", type: :feature do
   scenario "ユーザーがCategoryを開く。" do
     subject
     expect(product.taxon_ids).to include(taxon.id)
-    visit potepan_category_path(taxon.id)
+    visit potepan_category_path(taxon.id, view_type: 'Grid')
     expect(page).to have_content product.name
   end
 end
