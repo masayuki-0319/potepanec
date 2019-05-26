@@ -5,6 +5,7 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
     subject { get :show, params: { taxon_id: taxon.id } }
 
     let(:taxon) { create(:taxon) }
+    let(:taxonomy) { create(:taxonomy) }
 
     it "レスポンス成功を確認" do
       subject
@@ -19,6 +20,11 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
     it "@taxonへの受け渡しを確認" do
       subject
       expect(assigns(:taxon)).to eq(taxon)
+    end
+
+    it "@taxonomiesへの受け渡しを確認" do
+      subject
+      expect(assigns(:taxonomies)).to include(taxonomy)
     end
   end
 end

@@ -21,13 +21,13 @@
           </div>
           <div class="col-xs-6">
             <div class="btn-group pull-right" role="group">
-              <button type="button" class="btn btn-default <%= 'active' if "#{params[:view_type]}" == 'Grid' %>" onclick="window.location.href='<%= potepan_category_path(taxon_id: "#{params[:taxon_id]}", view_type: 'Grid') %>'"><i class="fa fa-th" aria-hidden="true"></i><span>Grid</span></button>
-              <button type="button" class="btn btn-default <%= 'active' if "#{params[:view_type]}" == 'List' %>" onclick="window.location.href='<%= potepan_category_path(taxon_id: "#{params[:taxon_id]}", view_type: 'List') %>'"><i class="fa fa-th-list" aria-hidden="true"></i><span>List</span></button>
+              <button type="button" class="btn btn-default <%= 'active' if params[:view_type] == 'Grid' %>" onclick="window.location.href='<%= potepan_category_path(taxon_id: params[:taxon_id], view_type: 'Grid') %>'"><i class="fa fa-th" aria-hidden="true"></i><span>Grid</span></button>
+              <button type="button" class="btn btn-default <%= 'active' if params[:view_type] == 'List' %>" onclick="window.location.href='<%= potepan_category_path(taxon_id: params[:taxon_id], view_type: 'List') %>'"><i class="fa fa-th-list" aria-hidden="true"></i><span>List</span></button>
             </div>
           </div>
         </div>
         <!--商品一覧表示 -->
-        <div class="row productListSingle">
+        <div class="row <%= 'productListSingle' if params[:view_type] == 'List' %>">
           <%= render partial: 'potepan/shared/product', collection: @products, as: :product if @products.present? %>
         </div>
       </div>

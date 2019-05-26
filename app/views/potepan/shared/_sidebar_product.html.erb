@@ -4,42 +4,39 @@
     <div class="panel-body">
       <div class="collapse navbar-collapse navbar-ex1-collapse navbar-side-collapse">
         <ul class="nav navbar-nav side-nav">
-          <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#category">カテゴリー<i class="fa fa-plus"></i></a>
-            <ul id="category" class="collapse collapseItem">
-              <li>
-                <a href="<%= potepan_category_path(taxon_id: 3, view_type: "#{params[:view_type]}") %>"><i class="fa fa-caret-right" aria-hidden="true"></i>Bags <span>(6)</span></a>
-              </li>
-              <li>
-                <a href="<%= potepan_category_path(taxon_id: 4, view_type: "#{params[:view_type]}") %>"><i class="fa fa-caret-right" aria-hidden="true"></i>Mugs <span>(6)</span></a>
-              </li>
-              <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#clothing">衣服<i class="fa fa-plus"></i></a>
-                <ul id="clothing" class="collapse collapseItem">
-                  <li>
-                    <a href="<%= potepan_category_path(taxon_id: 6, view_type: "#{params[:view_type]}") %>"><i class="fa fa-caret-right" aria-hidden="true"></i>Shirts <span>(6)</span></a>
-                  </li>
-                  <li>
-                    <a href="<%= potepan_category_path(taxon_id: 7, view_type: "#{params[:view_type]}") %>"><i class="fa fa-caret-right" aria-hidden="true"></i>T-Shirts <span>(6)</span></a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#brand">ブランド<i class="fa fa-plus"></i></a>
-            <ul id="brand" class="collapse collapseItem">
-              <li>
-                <a href="<%= potepan_category_path(taxon_id: 8, view_type: "#{params[:view_type]}") %>"><i class="fa fa-caret-right" aria-hidden="true"></i>Ruby <span>(6)</span></a>
-              </li>
-              <li>
-                <a href="<%= potepan_category_path(taxon_id: 9, view_type: "#{params[:view_type]}") %>"><i class="fa fa-caret-right" aria-hidden="true"></i>Apache <span>(6)</span></a>
-              </li>
-              <li>
-                <a href="<%= potepan_category_path(taxon_id: 10, view_type: "#{params[:view_type]}") %>"><i class="fa fa-caret-right" aria-hidden="true"></i>Rails <span>(6)</span></a>
-              </li>
-            </ul>
-          </li>
+          <% @taxonomies.each do |taxonomy| %>
+            <li>
+              <a href="javascript:;" data-toggle="collapse" data-target="#<%= taxonomy.name %>"><%= taxonomy.name %><i class="fa fa-plus"></i></a>
+              <ul id="<%= taxonomy.name %>" class="collapse collapseItem">
+                <% taxonomy.root.children.each do |taxon| %>
+                  <% if taxon.child_ids.blank? %>
+                  <!-- depth=1の子ノードを展開 -->
+                    <li>
+                      <a href="<%= potepan_category_path(taxon_id: taxon.id, view_type: params[:view_type]) %>">
+                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        <%= taxon.name %> <span>( <%= taxon.product_ids.count %> )</span>
+                      </a>
+                    </li>
+                  <% elsif taxon.child_ids.present? %>
+                  <!-- depth=2の子ノードを展開 -->
+                    <li>
+                      <a href="javascript:;" data-toggle="collapse" data-target="#<%= taxon.name %>"><%= taxon.name %><i class="fa fa-plus"></i></a>
+                      <ul id="<%= taxon.name %>" class="collapse collapseItem">
+                        <% taxon.children.each do |taxon_2| %>
+                          <li>
+                            <a href="<%= potepan_category_path(taxon_id: taxon_2.id, view_type: params[:view_type]) %>">
+                              <i class="fa fa-caret-right" aria-hidden="true"></i>
+                              <%= taxon_2.name %> <span>( <%= taxon_2.product_ids.count %> )</span>
+                            </a>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
