@@ -24,9 +24,11 @@ RSpec.feature "Categories", type: :feature do
       expect(page).to have_content taxonomy.name
       expect(page).to have_content taxon.name
       expect(page).to have_content taxon.product_ids.count
+      expect(page).to have_link taxon.name
       expect(page).to have_content other_taxonomy.name
       expect(page).to have_content other_taxon.name
       expect(page).to have_content other_taxon.product_ids.count
+      expect(page).to have_link other_taxon.name
     end
   end
 end
