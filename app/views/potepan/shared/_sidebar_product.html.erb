@@ -6,8 +6,8 @@
         <ul class="nav navbar-nav side-nav">
           <% @taxonomies.each do |taxonomy| %>
             <li>
-              <a href="javascript:;" data-toggle="collapse" data-target="#<%= taxonomy.name %>"><%= taxonomy.name %><i class="fa fa-plus"></i></a>
-              <ul id="<%= taxonomy.name %>" class="collapse collapseItem">
+              <a href="javascript:;" data-toggle="collapse" data-target="#prefix<%= taxonomy.id %>"><%= taxonomy.name %><i class="fa fa-plus"></i></a>
+              <ul id="prefix<%= taxonomy.id %>" class="collapse collapseItem">
                 <% taxonomy.root.children.each do |taxon| %>
                   <% if taxon.child_ids.blank? %>
                   <!-- depth=1の子ノードを展開 -->
@@ -20,8 +20,8 @@
                   <% elsif taxon.child_ids.present? %>
                   <!-- depth=2の子ノードを展開 -->
                     <li>
-                      <a href="javascript:;" data-toggle="collapse" data-target="#<%= taxon.name %>"><%= taxon.name %><i class="fa fa-plus"></i></a>
-                      <ul id="<%= taxon.name %>" class="collapse collapseItem">
+                      <a href="javascript:;" data-toggle="collapse" data-target="#prefix<%= taxon.id %>"><%= taxon.name %><i class="fa fa-plus"></i></a>
+                      <ul id="prefix<%= taxon.id %>" class="collapse collapseItem">
                         <% taxon.children.each do |taxon_2| %>
                           <li>
                             <a href="<%= potepan_category_path(taxon_id: taxon_2.id, view_type: params[:view_type]) %>">
