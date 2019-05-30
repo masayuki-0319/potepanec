@@ -1,13 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "Products", type: :feature do
-  subject { product.taxons << taxon }
-
   let(:taxon) { create(:taxon) }
   let(:product) { create(:product) }
 
   scenario "商品個別ページにアクセスする。" do
-    subject
+    product.taxons << taxon
     visit potepan_product_path(product.id)
     within('.media-body') do
       expect(page).to have_title product.name
