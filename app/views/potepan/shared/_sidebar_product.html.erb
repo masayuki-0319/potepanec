@@ -18,11 +18,11 @@
                       </a>
                     </li>
                   <% elsif taxon.child_ids.present? %>
-                  <!-- depth=2の子ノードを展開 -->
+                  <!-- depth=2以上の子ノードを展開 -->
                     <li>
                       <a href="javascript:;" data-toggle="collapse" data-target="#taxon-<%= taxon.id %>"><%= taxon.name %><i class="fa fa-plus"></i></a>
                       <ul id="taxon-<%= taxon.id %>" class="collapse collapseItem">
-                        <% taxon.children.each do |taxon_2| %>
+                        <% taxon.leaves.each do |taxon_2| %>
                           <li>
                             <a href="<%= potepan_category_path(taxon_id: taxon_2.id, view_type: @view_type) %>">
                               <i class="fa fa-caret-right" aria-hidden="true"></i>
