@@ -7,7 +7,7 @@
 <section class="mainContent clearfix productsContent">
   <div class="container">
     <div class="row">
-      <%= render 'potepan/shared/sidebar_product' %>
+      <%= render 'potepan/shared/sidebar_product', taxonomies: @taxonomies, view_type: @view_type %>
       <div class="col-md-9 col-sm-8 col-xs-12">
         <div class="row filterArea">
           <div class="col-xs-6">
@@ -32,7 +32,7 @@
         </div>
         <!--商品一覧表示 -->
         <div class="row <%= 'productListSingle' if @view_type== 'List' %>">
-          <%= render partial: 'potepan/shared/product', collection: @products, as: :product %>
+          <%= render partial: 'potepan/shared/product', collection: @products, as: :product, locals: { view_type: @view_type } %>
         </div>
       </div>
     </div>

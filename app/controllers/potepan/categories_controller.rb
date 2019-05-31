@@ -1,5 +1,5 @@
 class Potepan::CategoriesController < ApplicationController
-  before_action :view_type_select
+  before_action :view_type_select, only: [:show]
 
   def show
     @taxonomies = Spree::Taxonomy.eager_load(:root, taxons: :children).all
