@@ -17,7 +17,7 @@
                         <%= taxon.name %> <span>( <%= taxon.product_ids.count %> )</span>
                       </a>
                     </li>
-                  <% elsif taxon.child_ids.present? %>
+                  <% else %>
                   <!-- depth=2以上の子ノードを展開 -->
                     <li>
                       <a href="javascript:;" data-toggle="collapse" data-target="#taxon-<%= taxon.id %>"><%= taxon.name %><i class="fa fa-plus"></i></a>
