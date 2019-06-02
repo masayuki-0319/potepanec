@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Potepan::CategoriesController, type: :controller do
   describe '#show' do
-    before { get :show, params: { taxon_id: taxon.id } }
-
     let(:taxon) { create(:taxon) }
     let(:taxonomy) { create(:taxonomy) }
-    let(:product) { create(:product) }
-    let(:other_product) { create(:product) }
+    let(:product) { create(:product, taxons: [taxon]) }
+    let(:other_product) { create(:product, taxons: [taxon]) }
     let(:another_product) { create(:product) }
+
+    before { get :show, params: { taxon_id: taxon.id } }
 
     it "レスポンス成功を確認" do
       expect(response).to be_successful
@@ -27,8 +27,6 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
     end
 
     it "@productsへの受け渡しを確認" do
-      product.taxons << taxon
-      other_product.taxons << taxon
       expect(assigns(:products)).to include(product, other_product)
       expect(assigns(:products)).not_to include(another_product)
     end
