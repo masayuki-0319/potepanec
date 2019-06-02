@@ -34,9 +34,9 @@ RSpec.describe Potepan::CategoriesController, type: :controller do
     end
 
     it "@view_typeへの受け渡しを確認" do
-      expect(assigns(:view_type)).to include('Grid')
+      expect(assigns(:view_type)).to eq('Grid')
       get :show, params: { taxon_id: taxon.id, view_type: 'List' }
-      expect(assigns(:view_type)).to include('List')
+      expect(assigns(:view_type)).to eq('List')
     end
   end
 end

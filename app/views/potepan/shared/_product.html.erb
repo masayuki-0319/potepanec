@@ -1,4 +1,4 @@
-<% if view_type.include?('List') %>
+<% if view_type == 'List' %>
   <div class="col-xs-12">
     <div class="media">
       <div class="media-left">
@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-<% elsif view_type.include?('Grid') %>
+<% elsif view_type == 'Grid' %>
   <div class="col-sm-4 col-xs-12">
     <div class="productBox">
       <div class="productImage clearfix">
