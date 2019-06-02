@@ -8,25 +8,23 @@
             <li>
               <a href="javascript:;" data-toggle="collapse" data-target="#taxonomy-<%= taxonomy.id %>"><%= taxonomy.name %><i class="fa fa-plus"></i></a>
               <ul id="taxonomy-<%= taxonomy.id %>" class="collapse collapseItem">
-                <% taxonomy.root.children.each do |taxon| %>
-                  <% if taxon.child_ids.blank? %>
-                  <!-- depth=1の子ノードを展開 -->
+                <% taxonomy.root.children.each do |child_taxon| %>
+                  <% if child_taxon.child_ids.blank? %>
                     <li>
-                      <a href="<%= potepan_category_path(taxon_id: taxon.id, view_type: view_type) %>">
+                      <a href="<%= potepan_category_path(taxon_id: child_taxon.id, view_type: view_type) %>">
                         <i class="fa fa-caret-right" aria-hidden="true"></i>
-                        <%= taxon.name %> <span>( <%= taxon.product_ids.count %> )</span>
+                        <%= child_taxon.name %> <span>( <%= child_taxon.product_ids.count %> )</span>
                       </a>
                     </li>
                   <% else %>
-                  <!-- depth=2以上の子ノードを展開 -->
                     <li>
-                      <a href="javascript:;" data-toggle="collapse" data-target="#taxon-<%= taxon.id %>"><%= taxon.name %><i class="fa fa-plus"></i></a>
-                      <ul id="taxon-<%= taxon.id %>" class="collapse collapseItem">
-                        <% taxon.leaves.each do |taxon_2| %>
+                      <a href="javascript:;" data-toggle="collapse" data-target="#taxon-<%= child_taxon.id %>"><%= child_taxon.name %><i class="fa fa-plus"></i></a>
+                      <ul id="taxon-<%= child_taxon.id %>" class="collapse collapseItem">
+                        <% child_taxon.leaves.each do |descendant_taxon| %>
                           <li>
-                            <a href="<%= potepan_category_path(taxon_id: taxon_2.id, view_type: view_type) %>">
+                            <a href="<%= potepan_category_path(taxon_id: descendant_taxon.id, view_type: view_type) %>">
                               <i class="fa fa-caret-right" aria-hidden="true"></i>
-                              <%= taxon_2.name %> <span>( <%= taxon_2.product_ids.count %> )</span>
+                              <%= descendant_taxon.name %> <span>( <%= descendant_taxon.product_ids.count %> )</span>
                             </a>
                           </li>
                         <% end %>
