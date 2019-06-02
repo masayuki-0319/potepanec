@@ -6,33 +6,7 @@
         <ul class="nav navbar-nav side-nav">
           <% taxonomies.each do |taxonomy| %>
             <li>
-              <a href="javascript:;" data-toggle="collapse" data-target="#taxonomy-<%= taxonomy.id %>"><%= taxonomy.name %><i class="fa fa-plus"></i></a>
-              <ul id="taxonomy-<%= taxonomy.id %>" class="collapse collapseItem">
-                <% taxonomy.root.children.each do |child_taxon| %>
-                  <% if child_taxon.child_ids.blank? %>
-                    <li>
-                      <a href="<%= potepan_category_path(taxon_id: child_taxon.id, view_type: view_type) %>">
-                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                        <%= child_taxon.name %> <span>( <%= child_taxon.product_ids.count %> )</span>
-                      </a>
-                    </li>
-                  <% else %>
-                    <li>
-                      <a href="javascript:;" data-toggle="collapse" data-target="#taxon-<%= child_taxon.id %>"><%= child_taxon.name %><i class="fa fa-plus"></i></a>
-                      <ul id="taxon-<%= child_taxon.id %>" class="collapse collapseItem">
-                        <% child_taxon.leaves.each do |descendant_taxon| %>
-                          <li>
-                            <a href="<%= potepan_category_path(taxon_id: descendant_taxon.id, view_type: view_type) %>">
-                              <i class="fa fa-caret-right" aria-hidden="true"></i>
-                              <%= descendant_taxon.name %> <span>( <%= descendant_taxon.product_ids.count %> )</span>
-                            </a>
-                          </li>
-                        <% end %>
-                      </ul>
-                    </li>
-                  <% end %>
-                <% end %>
-              </ul>
+              <% taxonomy_open(taxonomy, view_type)%>
             </li>
           <% end %>
         </ul>
