@@ -1,19 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature "Categories", type: :feature do
-  let(:taxonomy) { create(:taxonomy, name: 'test_taxonomy') }
-  let(:taxon) { create(:taxon, name: 'test_taxon') }
-  let(:product) { create(:product) }
-  let(:other_taxonomy) { create(:taxonomy, name: 'test_other_taxonomy') }
-  let(:other_taxon) { create(:taxon, name: 'test_ohter_taxon') }
-  let(:other_product) { create(:product) }
-
-  before do
-    product.taxons << taxon
-    taxonomy.root.children << taxon
-    other_product.taxons << other_taxon
-    other_taxonomy.root.children << other_taxon
-  end
+  let!(:taxonomy) { create(:taxonomy, name: 'test_taxonomy') }
+  let!(:taxon) { create(:taxon, name: 'test_taxon', parent: taxonomy.root) }
+  let!(:product) { create(:product, taxons: [taxon]) }
+  let!(:other_taxonomy) { create(:taxonomy, name: 'test_other_taxonomy') }
+  let!(:other_taxon) { create(:taxon, name: 'test_ohter_taxon', parent: other_taxonomy.root) }
+  let!(:other_product) { create(:product, taxons: [other_taxon]) }
 
   scenario "商品カテゴリの表示を確認する。" do
     visit potepan_category_path(taxon_id: taxon.id)
