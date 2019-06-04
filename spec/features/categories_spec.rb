@@ -8,8 +8,11 @@ RSpec.feature "Categories", type: :feature do
   let!(:other_taxon) { create(:taxon, name: 'test_ohter_taxon', parent: other_taxonomy.root) }
   let!(:other_product) { create(:product, taxons: [other_taxon]) }
 
-  scenario "商品カテゴリの表示を確認する。" do
+  background do
     visit potepan_category_path(taxon_id: taxon.id)
+  end
+
+  scenario "商品カテゴリの表示を確認する。" do
     expect(page).to have_title taxon.name
     expect(page).to have_content product.name
     within('.side-nav') do
@@ -25,13 +28,11 @@ RSpec.feature "Categories", type: :feature do
   end
 
   scenario "商品カテゴリの画面間の移動を確認する。" do
-    visit potepan_category_path(taxon_id: taxon.id)
     click_on other_taxon.name
     expect(current_path).to eq potepan_category_path(taxon_id: other_taxon.id)
   end
 
   scenario "商品カテゴリから商品詳細ページへの移動を確認する。" do
-    visit potepan_category_path(taxon_id: taxon.id)
     click_on product.name
     expect(current_path).to eq potepan_product_path(product)
   end
