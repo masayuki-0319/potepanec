@@ -1,4 +1,4 @@
-<% provide(:title, 'Product Grid Sidebar Left') %>
+<% provide(:title, @taxon.name) %>
 <% content_for :add_breadcrumb do %>
   <li><%= link_to 'shop', '#' %></li>
 <% end %>
@@ -7,7 +7,7 @@
 <section class="mainContent clearfix productsContent">
   <div class="container">
     <div class="row">
-      <%= render 'potepan/sample/sidebar_product_sample' %>
+      <%= render 'potepan/shared/sidebar_product', taxonomies: @taxonomies, view_type: @view_type %>
       <div class="col-md-9 col-sm-8 col-xs-12">
         <div class="row filterArea">
           <div class="col-xs-6">
@@ -21,13 +21,18 @@
           </div>
           <div class="col-xs-6">
             <div class="btn-group pull-right" role="group">
-              <button type="button" class="btn btn-default active" onclick="window.location.href='product_grid_left_sidebar.html'"><i class="fa fa-th" aria-hidden="true"></i><span>Grid</span></button>
-              <button type="button" class="btn btn-default" onclick="window.location.href='product_list_left_sidebar.html'"><i class="fa fa-th-list" aria-hidden="true"></i><span>List</span></button>
+              <button type="button" class="btn btn-default <%= 'active' if @view_type == 'Grid' %>" onclick="window.location.href='<%= potepan_category_path(taxon_id: @taxon.id, view_type: 'Grid') %>'">
+                <i class="fa fa-th" aria-hidden="true"></i><span>Grid</span>
+              </button>
+              <button type="button" class="btn btn-default <%= 'active' if @view_type == 'List' %>" onclick="window.location.href='<%= potepan_category_path(taxon_id: @taxon.id, view_type: 'List') %>'">
+                <i class="fa fa-th-list" aria-hidden="true"></i><span>List</span>
+              </button>
             </div>
           </div>
         </div>
-        <div class="row"><!--商品一覧表示 -->
-          <%= render partial: 'potepan/sample/product_sample', collection: @products, as: :product, locals: { title: yield(:title) } if @products.present? %>
+        <!--商品一覧表示 -->
+        <div class="row <%= 'productListSingle' if @view_type== 'List' %>">
+          <%= render partial: 'potepan/shared/product', collection: @products, as: :product, locals: { view_type: @view_type } %>
         </div>
       </div>
     </div>
