@@ -81,7 +81,11 @@
             <h4>関連商品</h4>
           </div>
         </div>
-        <%= render partial: 'potepan/shared/under_products', collection: @products, as: :product %>
+        <div class="col-xs-12">
+          <div class="owl-carousel featuredProductsSlider">
+            <%= render partial: 'potepan/shared/under_products', collection: @products, as: :product %>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
