@@ -1,4 +1,7 @@
 <% provide(:title, @product.name) %>
+<% content_for :add_breadcrumb do %>
+  <li><%= link_to @product.taxons.first.name, potepan_category_path(@product.taxons.first.id) %></li>
+<% end %>
 
 <!-- MAIN CONTENT SECTION -->
 <section class="mainContent clearfix">
@@ -37,7 +40,7 @@
           <div class="media-body">
             <ul class="list-inline">
               <li>
-                <%= link_to request.referer do %>
+                <%= link_to potepan_category_path(@product.taxons.first.id) do %>
                   <i class="fa fa-reply" aria-hidden="true"></i>
                   一覧ページへ戻る
                 <% end %>
@@ -77,7 +80,7 @@
           <h4>関連商品</h4>
         </div>
       </div>
-      <%= render 'potepan/shared/under_products' %>
+      <%= render partial: 'potepan/shared/under_products', collection: @products, as: :product %>
     </div>
   </div>
 </section>
