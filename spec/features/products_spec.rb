@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "Products", type: :feature do
   let!(:taxon) { create(:taxon) }
-  let!(:product) { create(:product, taxons: [taxon]) }
-  let!(:other_product) { create(:product, taxons: [taxon]) }
+  let!(:product) { create(:product, taxons: [taxon], price: 123) }
+  let!(:other_product) { create(:product, taxons: [taxon], price: 321) }
 
   background do
     visit potepan_product_path(product.id)
@@ -26,6 +26,8 @@ RSpec.feature "Products", type: :feature do
 
   scenario "関連商品の表示とリンクを確認する。" do
     within('.productBox') do
+      expect(page).not_to have_content product.name
+      expect(page).not_to have_content product.display_price
       expect(page).to have_content other_product.name
       expect(page).to have_content other_product.display_price
       expect(find('a')[:href]).to eq potepan_product_path(other_product)
