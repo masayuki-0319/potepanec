@@ -74,13 +74,15 @@
         </div>
       </div>
     </div>
-    <div class="row productsContent">
-      <div class="col-xs-12">
-        <div class="page-header">
-          <h4>関連商品</h4>
+    <% if @products.present? %>
+      <div class="row productsContent">
+        <div class="col-xs-12">
+          <div class="page-header">
+            <h4>関連商品</h4>
+          </div>
         </div>
+        <%= render partial: 'potepan/shared/under_products', collection: @products, as: :product %>
       </div>
-      <%= render partial: 'potepan/shared/under_products', collection: @products, as: :product %>
-    </div>
+    <% end %>
   </div>
 </section>
