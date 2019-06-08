@@ -18,7 +18,7 @@ RSpec.feature "Products", type: :feature do
     end
   end
 
-  scenario "商品詳細からカテゴリページへアクセスする。" do
+  scenario "商品詳細からカテゴリへアクセスする。" do
     click_on '一覧ページへ戻る'
     expect(page).to have_title taxon.name
     expect(page).to have_content product.name
