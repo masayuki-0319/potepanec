@@ -1,11 +1,11 @@
-  <div class="productBox slide">
-    <%= link_to potepan_product_path(product) do %>
-      <div class="productImage clearfix">
-        <%= image_tag(product.display_image.attachment(:large), :alt => "link-#{product.name}") %>
-      </div>
-      <div class="productCaption clearfix">
-       <h5><%= product.name %></h5>
-       <h3><%= product.display_price %></h3>
-      </div>
-    <% end %>
-  </div>
+<div class="productBox slide">
+  <%= link_to potepan_product_path(product) do %>
+    <div class="productImage clearfix">
+      <%= image_tag(product.display_image.attachment(:large), :alt => "link-#{product.name}") %>
+    </div>
+    <div class="productCaption clearfix">
+     <h5><%= product.name %></h5>
+     <h3><%= product.display_price %></h3>
+    </div>
+  <% end %>
+</div>

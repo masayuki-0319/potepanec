@@ -1,8 +1,13 @@
 class Potepan::ProductsController < ApplicationController
   def show
     @product = Spree::Product.friendly.find(params[:id])
-    taxon = Spree::Taxon.find(@product.taxon_ids.first)
-    products = taxon.all_products.includes(master: [:default_price, :images]).shuffle.take(8)
-    @products = products.reject { |p| p == @product }
+    products = related_products(@product).includes(master: [:default_price, :images])
+    @related_products = products.shuffle.take(8)
+  end
+
+  private
+
+  def related_products(product)
+    Spree::Product.in_taxons(product.taxons).where.not(id: product.id).distinct
   end
 end
