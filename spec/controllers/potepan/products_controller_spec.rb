@@ -3,17 +3,8 @@ require 'rails_helper'
 RSpec.describe Potepan::ProductsController, type: :controller do
   describe '#show' do
     let!(:taxon) { create(:taxon) }
-    let!(:another_taxon) { create(:taxon) }
     let!(:product) { create(:product, taxons: [taxon]) }
     let!(:related_products) { create_list(:product, 8, taxons: [taxon]) }
-    let(:add_another_product) do
-      create(:product, taxons: [another_taxon])
-      get :show, params: { id: product.id }
-    end
-    let(:add_over_product) do
-      create(:product, taxons: [taxon])
-      get :show, params: { id: product.id }
-    end
 
     before { get :show, params: { id: product.id } }
 
@@ -29,14 +20,21 @@ RSpec.describe Potepan::ProductsController, type: :controller do
       expect(assigns(:product)).to eq product
     end
 
-    it "@related_productsへの受け渡しを確認" do
-      add_another_product
-      expect(assigns(:related_products)).to match_array related_products
-    end
+    context "@related_productsへの受け渡しを確認" do
+      let(:another_taxon) { create(:taxon) }
 
-    it "@related_productsが商品を最大８個所有することを確認" do
-      add_over_product
-      expect(assigns(:related_products).size).to eq 8
+      before do
+        create(:product, taxons: [taxon])
+        create(:product, taxons: [another_taxon])
+      end
+
+      it "同じTaxonに属する商品が存在する時" do
+        expect(assigns(:related_products).size).to eq 8
+      end
+
+      it "別のTaxonに属する商品が存在する時" do
+        expect(assigns(:related_products)).to match_array related_products
+      end
     end
   end
 end
