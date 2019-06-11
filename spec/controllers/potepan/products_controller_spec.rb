@@ -20,19 +20,37 @@ RSpec.describe Potepan::ProductsController, type: :controller do
       expect(assigns(:product)).to eq product
     end
 
-    context "@related_productsへの受け渡しを確認" do
-      let(:another_taxon) { create(:taxon) }
+    context "@productがTaxonsを持つ時" do
+      it "taxon_idは，productのTaxonを持つ" do
+        expect(assigns(:taxon_id)).to eq product.taxons.first.id
+      end
+    end
 
+    context "@productがTaxonsを持たない時" do
       before do
-        create(:product, taxons: [taxon])
-        create(:product, taxons: [another_taxon])
+        product.taxons = []
+        get :show, params: { id: product.id }
       end
 
-      it "同じTaxonに属する商品が存在する時" do
+      it "taxon_idは，Spree::Taxon.firstを持つ" do
+        expect(assigns(:taxon_id)).to eq Spree::Taxon.first.id
+      end
+    end
+
+    context "同じTaxonに属する商品が存在する時" do
+      before { create(:product, taxons: [taxon]) }
+
+      it "@related_productは，関連商品を最大８個持つ" do
         expect(assigns(:related_products).size).to eq 8
       end
+    end
 
-      it "別のTaxonに属する商品が存在する時" do
+    context "別のTaxonに属する商品が存在する時" do
+      let(:another_taxon) { create(:taxon) }
+
+      before { create(:product, taxons: [another_taxon]) }
+
+      it "@related_productは，同じTaxonを持つ商品のみ持つ" do
         expect(assigns(:related_products)).to match_array related_products
       end
     end
