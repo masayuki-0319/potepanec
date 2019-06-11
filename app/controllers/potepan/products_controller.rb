@@ -3,6 +3,7 @@ class Potepan::ProductsController < ApplicationController
 
   def show
     @product = Spree::Product.friendly.find(params[:id])
+    @taxon_id = @product.taxons.first.id || Spree::Taxon.first.id
     @related_products =
       @product.related_products.
         includes(master: [:default_price, :images]).
